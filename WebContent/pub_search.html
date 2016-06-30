@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>検索画面</title>
+<link rel="stylesheet" type="text/css" href="lib.css">
+<script type="text/javascript" src="code.js"></script>
+</head>
+<body>
+	<div id="header">
+		<h1>図書管理システム</h1>
+	</div>
+	<div id="user">
+		<p>検索項目</p>
+		<form action="pub_search.html" method="post">
+			<label>図書名:
+			<input type="text" name="book_name">
+			</label>
+			<br><br>
+			<label>著者名:
+			<input type="text" name="author">
+			</label>
+			<br><br>
+			<label>ISBN-13:
+			<input type="text" name="isbn_13">
+			</label>
+			<br><br>
+			<label>
+			<input type="checkbox" name="is_publised_year"  onclick="connecttext('published_year',this.checked);" checked >
+			出版年:</label>
+			<select name="publised_year" id="published_year">
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+			</select>
+
+			<br><br>
+			<label>
+			<input type="checkbox" name="is_purchased_year" onclick="connecttext('purchased_year',this.checked);" checked>
+			購入年:</label>
+			<select name="purchased_year" id="purchased_year">
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+			</select>
+
+			<br><br>
+			<label>貸出状況:</label>
+			<label>
+			<input type="checkbox" name="unborrowed">未貸出
+			</label>
+			<label>
+			<input type="checkbox" name="borrowed">貸出
+			</label>
+
+			<br><br>
+			<input type="submit" value="検索">
+			<input type="reset" value="リセット" onclick="disable('purchased_year');disable('published_year')">
+			<input type="button" value="戻る" onClick="location.href='index.html'">
+		</form>
+
+	</div>
+
+		<div id="search_result">
+		<h1>検索結果</h1>
+		<br>
+		<br>
+		<h2>結果一覧</h2>
+		<br>
+		<center>
+		<div id="result">
+			<table>
+				<thead>
+					<tr>
+						<th>図書名</th><th>著者名</th><th>ISBN-13</th><th>出版年</th><th>購入年</th><th>貸し出し状況</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>よくわかるJava</td><td>田中一郎</td><td>1122334455667</td><td>2016</td><td>2016</td><td>貸出中</td>
+					</tr>
+					<tr>
+						<td>よくわかるJava</td><td>田中一郎</td><td>1122334455667</td><td>2016</td><td>2016</td><td>貸出中</td>
+					</tr>
+					<tr>
+						<td>よくわかるJava</td><td>田中一郎</td><td>1122334455667</td><td>2016</td><td>2016</td><td>貸出中</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</center>
+		</div>
+
+
+
+</body>
+</html>

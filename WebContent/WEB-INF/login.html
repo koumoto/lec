@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+<link rel="stylesheet" type="text/css" href="lib.css">
+<script type="text/javascript" src="code.js"></script>
+</head>
+<body>
+	<div id="header"><h1>図書管理システム</h1></div>
+	<div id="user">
+	<p>ログインしてください</p>
+	<form  action="LoginCheckServlet" method="post" name="form">
+		<label>ユーザID:</label>
+		<input type="text" name="user_id">
+		<br><br>
+		<label>パスワード:</label>
+		<input type="password" name="passwd">
+		<br>
+		<br>
+		<input type="submit" value="ログイン" >
+		<input type="reset" value="リセット">
+		<input type="button" value="戻る" onClick="location.href='index.html'">
+	</form>
+	</div>
+
+</body>
+</html>
