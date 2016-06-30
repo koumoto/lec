@@ -21,7 +21,7 @@ public class UserDAO {
 				rs = pstmt.executeQuery();
 			}catch(Exception e){
 				System.err.println(e);
-				System.err.println("SQL構文エラー");
+				System.err.println("SQL構文エラー ");
 			}
 			if(rs.next()){
 				return true;
