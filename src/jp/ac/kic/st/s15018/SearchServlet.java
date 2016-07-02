@@ -3,7 +3,6 @@ package jp.ac.kic.st.s15018;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,26 +26,16 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		BookBean bookBean = new BookBean();
-		ServletContext application = this.getServletContext();
-		String path = application.getRealPath("/WEB-INF/BookData.csv");
+		BookDAO dao = new BookDAO();
 
 		bookBean.setName(request.getParameter("book_name"));
 		bookBean.setAuthor(request.getParameter("author"));
 		bookBean.setIsbn(request.getParameter("isbn_13"));
 		bookBean.setPublishYear(Integer.parseInt(request.getParameter("publised_year")));
 
-		BookListBean listBean = new BookListBean();
-
-		/*List<BookBean> list =  */listBean.readDataFromCSV(path);
-		if("".equals(request.getParameter("book_name"))){
-			listBean = listBean.selectAll();
-		}else{
-			listBean = listBean.selectData(bookBean);
-		}
-
+		BookListBean listBean = dao.findBook(request.getParameter("book_name"), request.getParameter("author"), request.getParameter("isbn_13"), Integer.parseInt(request.getParameter("publised_year")), true);
 		request.setAttribute("bookBean", bookBean);
 		request.setAttribute("listBean", listBean);//nullが入っている可能性あり
 
