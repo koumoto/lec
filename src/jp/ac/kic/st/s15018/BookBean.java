@@ -63,6 +63,10 @@ public class BookBean {
 		this.kashidashi = kashidashi;
 	}
 
+	public boolean getKashidashi(){
+		return this.kashidashi;
+	}
+
 	public String getKashidashiString(){
 		String retval;
 		if(this.kashidashi) retval = "貸出中";

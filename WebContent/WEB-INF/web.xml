@@ -49,4 +49,14 @@
     <servlet-name>LogOff</servlet-name>
     <url-pattern>/LogOff</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminBookAddServlet</display-name>
+    <servlet-name>AdminBookAddServlet</servlet-name>
+    <servlet-class>jp.ac.kic.st.s15018.AdminBookAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminBookAddServlet</servlet-name>
+    <url-pattern>/AdminBookAddServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -68,7 +68,7 @@
 
 			<br><br>
 			<input type="submit" value="検索">
-			<input type="reset" value="リセット" onclick="disable('purchased_year');disable('published_year')">
+			<input type="reset" value="リセット" onclick="disable('published_year')">
 			<input type="button" value="戻る" onClick="location.href='index.html'">
 		</form>
 	</div>

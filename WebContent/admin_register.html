@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>図書登録画面</title>
+<link rel="stylesheet" type="text/css" href="lib.css">
+</head>
+<body>
+	<div id="header">
+		<h1>図書管理システム</h1>
+	</div>
+	<div id="user">
+	<h2>登録情報</h2>
+	<form action="AdminBookAddServlet" method="post">
+			<label>図書名:</label>
+			<input type="text" name="book_name">
+			<br><br>
+			<label>著者名:</label>
+			<input type="text" name="author">
+			<br><br>
+			<label>ISBN-13:</label>
+			<input type="text" name="isbn_13">
+			<br><br>
+			<label>出版年:</label>
+			<input type="text" name="publised_year">
+			<br><br>
+			<label>購入年:</label>
+			<input type="text" name="purchased_year">
+			<br><br>
+			<input type="submit" value="登録">
+			<input type="reset" value="リセット">
+			<input type="button" value="戻る" onClick="location.href='admin_index.html'">
+			<input type="button" value="ログアウト" onClick="location.href='login.html'">
+		</form>
+	</div>
+
+</body>
+</html>

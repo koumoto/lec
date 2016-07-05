@@ -47,4 +47,38 @@ public class BookDAO {
 		}
 	}
 
+	public int add(BookBean bean){
+		String name = bean.getName();
+		String author = bean.getAuthor();
+		String isbn = bean.getIsbn();
+		int publishYear = bean.getPublishYear();
+		boolean kashidashi = bean.getKashidashi();
+		int result = 0;
+
+		Connection conn = null;
+		try{
+			conn = DBManager.getConnection();
+			String sql = "INSERT INTO book (book_name, author, isbn, publish_year, kashidashi) " +
+							"VALUES (?, ?, ?, ?, ?);";
+			//System.err.println(sql);
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, author);
+			pstmt.setString(3, isbn);
+			pstmt.setInt(4, publishYear);
+			pstmt.setBoolean(5, kashidashi);
+			try{
+				result = pstmt.executeUpdate();
+				return result;
+			}catch(Exception e){
+				System.err.println(e);
+				System.err.println("SQL構文エラー ");
+			}
+		}catch (Exception e){
+			System.err.println(e);
+		}
+		return result;
+
+	}
+
 }
