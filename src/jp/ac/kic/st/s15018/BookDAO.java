@@ -11,11 +11,18 @@ public class BookDAO {
 		try{
 			conn = DBManager.getConnection();
 			BookListBean bookListBean = new BookListBean();
-			String sql = "SELECT * FROM book WHERE book_name LIKE ? AND author LIKE ? ;";
+			String sql = "SELECT * FROM book WHERE book_name LIKE ? AND author LIKE ? AND isbn LIKE ? ";
+			if(isSelectPublish){
+				sql += " AND publish_year = ?";
+			}
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+name+"%");
-			pstmt.setString(2, "%"+author+"%");
-
+			pstmt.setString(1, "%"+ name +"%");
+			pstmt.setString(2, "%"+ author +"%");
+			pstmt.setString(3, "%" + isbn + "%");
+			if(isSelectPublish){
+				pstmt.setInt(4, publishYear);
+			}
+				System.out.println(sql);
 			ResultSet rs = null;
 			try{
 				rs = pstmt.executeQuery();

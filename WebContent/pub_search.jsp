@@ -41,7 +41,7 @@
 			</label>
 			<br><br>
 			<label>
-			<input type="checkbox" name="is_publised_year"  onclick="connecttext('published_year',this.checked);" checked >
+			<input type="checkbox" name="is_publised_year" value="true"  onclick="connecttext('published_year',this.checked);" checked >
 			出版年:</label>
 			<select name="publised_year" id="published_year">
 <%

@@ -33,9 +33,17 @@ public class SearchServlet extends HttpServlet {
 		bookBean.setName(request.getParameter("book_name"));
 		bookBean.setAuthor(request.getParameter("author"));
 		bookBean.setIsbn(request.getParameter("isbn_13"));
-		bookBean.setPublishYear(Integer.parseInt(request.getParameter("publised_year")));
+		int publishYear;
+		if(request.getParameter("publised_year") != null){
+			bookBean.setPublishYear(Integer.parseInt(request.getParameter("publised_year")));
+			publishYear = Integer.parseInt(request.getParameter("publised_year"));
 
-		BookListBean listBean = dao.findBook(request.getParameter("book_name"), request.getParameter("author"), request.getParameter("isbn_13"), Integer.parseInt(request.getParameter("publised_year")), true);
+		}else{
+			bookBean.setPublishYear(2016);
+			publishYear = 2016;
+		}
+
+		BookListBean listBean = dao.findBook(request.getParameter("book_name"), request.getParameter("author"), request.getParameter("isbn_13"), publishYear, Boolean.valueOf(request.getParameter("is_publised_year")));
 		request.setAttribute("bookBean", bookBean);
 		request.setAttribute("listBean", listBean);//nullが入っている可能性あり
 
