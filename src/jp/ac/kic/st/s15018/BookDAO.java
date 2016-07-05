@@ -22,7 +22,7 @@ public class BookDAO {
 			if(isSelectPublish){
 				pstmt.setInt(4, publishYear);
 			}
-				System.out.println(sql);
+			//	System.out.println(sql);
 			ResultSet rs = null;
 			try{
 				rs = pstmt.executeQuery();
@@ -35,7 +35,8 @@ public class BookDAO {
 				 String getAuthor = rs.getString("author");
 				 String getIsbn = rs.getString("isbn");
 				 int getPublishYear = rs.getInt("publish_year");
-				 BookBean bookBean = new BookBean(getName, getAuthor, getIsbn, getPublishYear);
+				 boolean getKashidashi = rs.getBoolean("kashidashi");
+				 BookBean bookBean = new BookBean(getName, getAuthor, getIsbn, getPublishYear, getKashidashi);
 				 bookListBean.add(bookBean);
 			}
 			return bookListBean;

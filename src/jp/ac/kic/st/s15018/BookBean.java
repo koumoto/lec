@@ -5,19 +5,26 @@ public class BookBean {
 	private String author;
 	private String isbn;
 	private int publishYear;
+	private boolean kashidashi;
 
 	public BookBean(){ //デフォルトの引数なしのコンストラクタ
 		this.name = "";
 		this.author = "";
 		this.isbn = "";
 		this.publishYear = 0;
+		this.kashidashi = false;
 	}
 
-	public BookBean(String name, String author, String isbn, int publishYear){
+	public BookBean(String name, String author, String isbn, int publishYear, Boolean kashidashi){
 		this.name = name;
 		this.author = author;
 		this.isbn = isbn;
 		this.publishYear = publishYear;
+		this.kashidashi = kashidashi;
+	}
+
+	public BookBean(String name, String author, String isbn, int publishYear){
+		this(name,author,isbn,publishYear,false);
 	}
 
 	public String getName(){
@@ -50,6 +57,17 @@ public class BookBean {
 
 	public void setPublishYear(int publishYear){
 		this.publishYear = publishYear;
+	}
+
+	public void setKashidashi(boolean kashidashi){
+		this.kashidashi = kashidashi;
+	}
+
+	public String getKashidashiString(){
+		String retval;
+		if(this.kashidashi) retval = "貸出中";
+		else retval ="返却";
+		return retval;
 	}
 
 	@Override

@@ -41,9 +41,9 @@
 			</label>
 			<br><br>
 			<label>
-			<input type="checkbox" name="is_publised_year" value="true"  onclick="connecttext('published_year',this.checked);" checked >
+			<input type="checkbox" name="is_publised_year" value="true"  onclick="connecttext('published_year',this.checked);">
 			出版年:</label>
-			<select name="publised_year" id="published_year">
+			<select name="publised_year" id="published_year" disabled>
 <%
 			Calendar cal = Calendar.getInstance();
 			int nowYear = cal.get(Calendar.YEAR);
@@ -53,18 +53,6 @@
 				}else{
 					out.println("<option value=\"" + i +"\">" + i + "</option>");
 				}
-			}
-%>
-			</select>
-
-			<br><br>
-			<label>
-			<input type="checkbox" name="is_purchased_year" onclick="connecttext('purchased_year',this.checked);" checked>
-			購入年:</label>
-			<select name="purchased_year" id="purchased_year">
-<%
-			for(int i = nowYear; i > nowYear - 10; i--){
-				out.println("<option value=" + i +">" + i + "</option>");
 			}
 %>
 			</select>
@@ -96,7 +84,7 @@
 			<table>
 				<thead>
 					<tr>
-						<th>図書名</th><th>著者名</th><th>ISBN-13</th><th>出版年</th><th>貸し出し状況</th>
+						<th>図書名</th><th>著者名</th><th>ISBN-13</th><th>出版年</th><th>貸出状況</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -108,7 +96,7 @@
 						 out.println("<td>" + listBean.get(i).getAuthor() + "</td>");
 				    	 out.println("<td>" + listBean.get(i).getIsbn() + "</td>");
 						 out.println("<td>" + listBean.get(i).getPublishYear() + "</td>");
-						 out.println("<td>" + "貸出中" + "</td></tr>" );
+						 out.println("<td>" + listBean.get(i).getKashidashiString() + "</td></tr>" );
 				    }
 				}
 				%>
