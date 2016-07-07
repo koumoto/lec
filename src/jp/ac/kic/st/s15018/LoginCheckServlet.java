@@ -40,12 +40,9 @@ public class LoginCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//CSVファイルの読み込み
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		RequestDispatcher dispatcher;
-		//ServletContext application = this.getServletContext();
-		//String path = application.getRealPath("/WEB-INF/user.csv");
 		UserDAO dao = new UserDAO();
 		//System.out.println(path);//debug用
 		if(dao.checkLogin(request.getParameter("user_id"), request.getParameter("passwd"))){
