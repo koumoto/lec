@@ -81,4 +81,36 @@ public class BookDAO {
 
 	}
 
+	public BookBean findById(int id){
+		Connection conn = null;
+		try{
+			conn = DBManager.getConnection();
+			BookBean bean = new BookBean();
+			String sql = "SELECT * FROM book WHERE book_id = ?;";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+
+			ResultSet rs = null;
+			try{
+				rs = pstmt.executeQuery();
+			}catch(Exception e){
+				System.err.println(e);
+				System.err.println("SQL構文エラー ");
+			}
+			rs.next();
+			String getName = rs.getString("book_name");
+			String getAuthor = rs.getString("author");
+			String getIsbn = rs.getString("isbn");
+			int getPublishYear = rs.getInt("publish_year");
+			boolean getKashidashi = rs.getBoolean("kashidashi");
+			bean = new BookBean(getName, getAuthor, getIsbn, getPublishYear, getKashidashi);
+			return bean;
+
+		}catch (Exception e){
+			System.err.println(e);
+		}
+		return null;
+	}
+
+
 }

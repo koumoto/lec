@@ -59,4 +59,14 @@
     <servlet-name>AdminBookAddServlet</servlet-name>
     <url-pattern>/AdminBookAddServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangeKashidashiServlet</display-name>
+    <servlet-name>ChangeKashidashiServlet</servlet-name>
+    <servlet-class>jp.ac.kic.st.s15018.ChangeKashidashiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeKashidashiServlet</servlet-name>
+    <url-pattern>/ChangeKashidashiServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -39,7 +39,7 @@ public class AdminBookAddServlet extends HttpServlet {
 			bookBean.setPublishYear(2016);
 		}
 		int result = dao.add(bookBean);
-		if(result == 1){
+		if(result == 1){ //登録に成功したら
 			dispatcher.forward(request, response);
 		}else {
 			response.sendRedirect("error.html");
